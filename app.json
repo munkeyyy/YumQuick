@@ -20,7 +20,18 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.monke98.YumQuick"
+      "package": "com.monke98.YumQuick",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "FOREGROUND_SERVICE",
+        "ACCESS_BACKGROUND_LOCATION"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyC29h2-0x3nRWeg9Ov64BoYz-i0YWAUo3A"
+        }
+      }
     },
     "web": {
       "output": "static",
@@ -28,6 +39,7 @@
     },
     "plugins": [
       "expo-router",
+      "expo-location",
       [
         "expo-splash-screen",
         {

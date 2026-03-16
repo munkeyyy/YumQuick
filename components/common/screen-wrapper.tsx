@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   
   },
   headerPadding: {
-    paddingHorizontal: 15,
+    paddingHorizontal: 10,
     paddingTop: 25,
     // alignItems: 'center',
     // justifyContent: 'center',
@@ -69,7 +69,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    padding: 20,
-    paddingBottom: 40,
+    // padding: 20,
+    // paddingTop:10,
+    // paddingBottom: 40,
+    // paddingHorizontal:10,
   },
 });

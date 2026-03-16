@@ -1,7 +1,7 @@
 // app/(tabs)/_layout.tsx
 import { Tabs } from 'expo-router';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-import { HomeIcon, MenuIcon, OrdersIcon, SupportIcon } from '@/helpers/icons';
+import { HeartIcon, HomeIcon, MenuIcon, OrdersIcon, SupportIcon } from '@/helpers/icons';
 
 export default function TabLayout() {
   return (
@@ -51,6 +51,12 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="favourites"
+        options={{
+          tabBarIcon: ({ color }) => <HeartIcon  size={32} color={color} />,
+        }}
+      />
+      <Tabs.Screen
         name="orders"
         options={{
           tabBarIcon: ({ color }) => <OrdersIcon  size={26} color={color} />,
@@ -62,6 +68,12 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <SupportIcon  size={26} color={color} />,
         }}
       />
+      <Tabs.Screen
+    name="search"
+    options={{
+      href: null, // This is the magic line that hides the icon
+    }}
+  />
       {/* ... Add other screens: favorites, orders, support */}
     </Tabs>
   );

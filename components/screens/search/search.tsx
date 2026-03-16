@@ -5,20 +5,31 @@ import {
   TouchableOpacity,
   Text,
   FlatList,
+  Image,
 } from "react-native";
 import Animated, {
   FadeInDown,
   FadeInUp,
   FadeOutUp,
 } from "react-native-reanimated";
-import { Hamburger, IceCreamBowl, Pizza, Salad, Search, Settings2, X } from "lucide-react-native";
+import {
+  Hamburger,
+  Heart,
+  IceCreamBowl,
+  Pizza,
+  Salad,
+  Search,
+  Settings2,
+  X,
+} from "lucide-react-native";
 import { ScreenWrapper } from "@/components/common/screen-wrapper";
-
+// @ts-ignore
+import Burger from "../../../assets/images/burger.jpg";
 const SearchScreen = () => {
   const items = ["Dishes", "Restaurants", "Burgers"];
   const [index, setIndex] = useState(0);
   const [searchText, setSearchText] = useState("");
-
+  const [activeItem, setActiveItem] = useState("all");
   // Automatically cycle through the items array
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,6 +37,33 @@ const SearchScreen = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+  const popularSearches = [
+    {
+      id: "1",
+      name: "Burgers",
+      tag: "all",
+      icon: <Hamburger size={28} strokeWidth={1} color={"#fff"} />,
+    },
+    {
+      id: "2",
+      name: "Pizza",
+      tag: "fast delivery",
+
+      icon: <Pizza size={28} strokeWidth={1} color={"#fff"} />,
+    },
+    {
+      id: "3",
+      name: "Desserts",
+      tag: "top rated",
+      icon: <IceCreamBowl size={28} strokeWidth={1} color={"#fff"} />,
+    },
+    {
+      id: "4",
+      name: "Salads",
+      tag: "vegie",
+      icon: <Salad size={28} strokeWidth={1} color={"#fff"} />,
+    },
+  ];
   const handleRenderSearches = () => {
     // Replace this with your actual state/data source later
     const recentSearches = [
@@ -70,28 +108,6 @@ const SearchScreen = () => {
   };
 
   const renderPopularSearches = () => {
-    const popularSearches = [
-      {
-        id: "1",
-        name: "Burgers",
-        icon: <Hamburger size={28} color={"#fff"} />,
-      },
-      {
-        id: "2",
-        name: "Pizza",
-        icon: <Pizza size={28} color={"#fff"} />,
-      },
-      {
-        id: "3",
-        name: "Desserts",
-        icon: <IceCreamBowl size={28} color={"#fff"} />,
-      },
-      {
-        id: "4",
-        name: "Salads",
-        icon: <Salad size={28} color={"#fff"} />,
-      },
-    ];
     return (
       <View className="mt-4">
         <View className=" mb-4">
@@ -99,26 +115,76 @@ const SearchScreen = () => {
             Popular Searches
           </Text>
           <View className="mt-4">
-
-          <FlatList
-            data={popularSearches}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            keyExtractor={(item) => item.id}
-            contentContainerStyle={{ gap:18 }}
-            renderItem={({ item }) => (
-              <View className="">
-                <TouchableOpacity className="flex-row items-center bg-[#E95322]  px-4 py-4 justify-between rounded-full border border-gray-200" onPress={() => setSearchText(item.name)}>
-           
+            <FlatList
+              data={popularSearches}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              keyExtractor={(item) => item.id}
+              contentContainerStyle={{ gap: 18 }}
+              renderItem={({ item }) => (
+                <View className="">
+                  <TouchableOpacity
+                    className="flex-row items-center bg-[#E95322]  px-4 py-4 justify-between rounded-full border border-gray-200"
+                    onPress={() => setSearchText(item.name)}
+                  >
                     {item.icon}
-                
-                </TouchableOpacity>
-                <Text className="text-center">{item.name}</Text>
-              </View>
-            )}
-          />
+                  </TouchableOpacity>
+                  <Text className="text-center">{item.name}</Text>
+                </View>
+              )}
+            />
           </View>
         </View>
+      </View>
+    );
+  };
+
+  const renderFilters = () => {
+    const filterData = [
+      {
+        id: "1",
+        key: "all",
+      },
+      {
+        id: "2",
+        key: "fast delivery",
+      },
+      {
+        id: "3",
+        key: "top rated",
+      },
+      {
+        id: "4",
+        key: "vegie",
+      },
+    ];
+    const handleFilter = (key: string) => {
+      popularSearches.filter((s) => s.tag === key);
+      setActiveItem(key);
+    };
+    return (
+      <View className="my-4">
+        <FlatList
+          data={filterData}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={{ gap: 15 }}
+          renderItem={({ item }) => (
+            <View className="">
+              <TouchableOpacity
+                className={`flex-row items-center   px-4 py-2 justify-between rounded-full  border border-[#E95322] ${activeItem === item.key ? "bg-[#E95322]" : "border-[#E95322] bg-white"}`}
+                onPress={() => handleFilter(item.key)}
+              >
+                <Text
+                  className={`${activeItem === item.key ? "text-white" : "text-[#E95322]"} text-sm font-medium`}
+                >
+                  {item.key.toUpperCase()}
+                </Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        />
       </View>
     );
   };
@@ -163,6 +229,41 @@ const SearchScreen = () => {
       <View className="flex-1 p-5">
         <View>{handleRenderSearches()}</View>
         <View className="my-4">{renderPopularSearches()}</View>
+        <View>
+          <Text className="text-black font-extrabold text-xl">{`Search Results For '${searchText}'`}</Text>
+          {renderFilters()}
+        </View>
+        <View className="my-4 ">
+          <View className=" bg-white rounded-3xl overflow-hidden flex-2">
+            <View className="h-[12rem] w-full relative">
+              <TouchableOpacity className="absolute left-2 top-5 bg-gray-100 p-2 rounded-full z-10">
+                <Heart size={15} stroke={"red"} />
+              </TouchableOpacity>
+
+              <Image source={Burger} className="h-full w-full" />
+            </View>
+          </View>
+          <View className="flex flex-row justify-between gap-2">
+            <View className=" bg-white rounded-3xl overflow-hidden my-2">
+              <View className="h-[10rem] w-full relative">
+                <TouchableOpacity className="absolute left-2 top-5 bg-gray-100 p-2 rounded-full z-10">
+                  <Heart size={15} stroke={"red"} />
+                </TouchableOpacity>
+
+                <Image source={Burger} className="h-full w-full" />
+              </View>
+            </View>
+            <View className=" bg-white rounded-3xl overflow-hidden my-2">
+              <View className="h-[10rem] w-full relative">
+                <TouchableOpacity className="absolute left-2 top-5 bg-gray-100 p-2 rounded-full z-10">
+                  <Heart size={15} stroke={"red"} />
+                </TouchableOpacity>
+
+                <Image source={Burger} className="h-full w-full" />
+              </View>
+            </View>
+          </View>
+        </View>
       </View>
     </ScreenWrapper>
   );
