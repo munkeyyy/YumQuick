@@ -1,3 +1,4 @@
+import { Fonts } from "@/constants/theme";
 import {
   ChefIcon,
   CulinaryIcon,
@@ -198,8 +199,9 @@ const Home = () => {
                       },
                     })
                   }
-                  className="bg-white p-4 rounded-2xl shadow-sm "
-                >
+                  className="bg-white p-4 rounded-2xl shadow-sm relative "
+                  >
+                  <Text className="p-1 px-3 text-white bg-[rgba(0,0,0,0.6)] rounded-full absolute z-10 text-sm top-8 left-6">{item.title}</Text>
                   <View
                     style={{
                       height: 222,
@@ -209,7 +211,7 @@ const Home = () => {
                   />
                   <View className="flex-row justify-between items-center mt-4">
                     <View className="flex-1">
-                      <Text className="text-lg font-bold text-gray-900">
+                      <Text style={{fontFamily:Fonts.spartan}} className="text-lg font-bold text-gray-900">
                         {item.title}
                       </Text>
                       <Text className="text-gray-500 text-xs mb-1">

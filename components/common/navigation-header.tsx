@@ -31,5 +31,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: "bold",
     color: "#fff",
+    fontFamily:'Spartan'
   },
 });

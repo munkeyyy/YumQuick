@@ -25,12 +25,23 @@
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION",
         "FOREGROUND_SERVICE",
-        "ACCESS_BACKGROUND_LOCATION"
+        "ACCESS_BACKGROUND_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "FOREGROUND_SERVICE",
+        "ACCESS_BACKGROUND_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
       ],
       "config": {
         "googleMaps": {
           "apiKey": "AIzaSyC29h2-0x3nRWeg9Ov64BoYz-i0YWAUo3A"
         }
+      },
+      "runtimeVersion": {
+        "policy": "appVersion"
       }
     },
     "web": {
@@ -40,6 +51,7 @@
     "plugins": [
       "expo-router",
       "expo-location",
+      "expo-font",
       [
         "expo-splash-screen",
         {
@@ -51,7 +63,8 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true,
@@ -62,6 +75,9 @@
       "eas": {
         "projectId": "89ae461e-de63-4da9-b8b5-284dd9be4631"
       }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/89ae461e-de63-4da9-b8b5-284dd9be4631"
     }
   }
 }

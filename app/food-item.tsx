@@ -2,15 +2,24 @@ import { NavigationHeader } from "@/components/common/navigation-header";
 import { ScreenWrapper } from "@/components/common/screen-wrapper";
 import { useLocalSearchParams } from "expo-router";
 import { CheckCircle, Minus, Plus, ShoppingBag } from "lucide-react-native";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
 const FoodItem = () => {
   const { id, title, desc, rating, price, categoryId } = useLocalSearchParams();
-  const handleAdd=()=>{
-    
-  }
+  
+  const cartData = {
+    id,
+    title,
+    desc,
+    rating,
+    price,
+    categoryId,
+  };
+  const handleAdd = async () => {
+    await AsyncStorage.setItem("cart", JSON.stringify(cartData));
+  };
   return (
     <ScreenWrapper
       headerContent={<NavigationHeader title={title.toString()} />}
@@ -46,21 +55,23 @@ const FoodItem = () => {
         <View className="my-6 ">
           <Text className="text-xl font-bold">Toppings</Text>
 
-          <View >
+          <View>
             {["Onions", "Diet Coke", "Chutney"].map((a) => {
               return (
-                <View key={a} className="flex-row justify-between items-center gap-2 my-2">
-                  
+                <View
+                  key={a}
+                  className="flex-row justify-between items-center gap-2 my-2"
+                >
                   <Text className="text-lg">{a}</Text>
                   <Text className="text-lg">245</Text>
                 </View>
               );
             })}
           </View>
-            <TouchableOpacity className="flex-row item-center gap-3 absolute bottom-[-60] left-[100] bg-[#E95322] p-4 rounded-full">
-                <ShoppingBag color={"white"} size={20}/>
-                <Text className="text-white">Add to cart</Text>
-            </TouchableOpacity>
+          <TouchableOpacity className="flex-row item-center gap-3 absolute bottom-[-60] left-[100] bg-[#E95322] p-4 rounded-full">
+            <ShoppingBag color={"white"} size={20} />
+            <Text className="text-white">Add to cart</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </ScreenWrapper>

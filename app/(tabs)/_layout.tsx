@@ -2,6 +2,7 @@
 import { Tabs } from 'expo-router';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { HeartIcon, HomeIcon, MenuIcon, OrdersIcon, SupportIcon } from '@/helpers/icons';
+import { User2 } from 'lucide-react-native';
 
 export default function TabLayout() {
   return (
@@ -58,20 +59,27 @@ export default function TabLayout() {
       />
       <Tabs.Screen
         name="orders"
-        options={{
-          tabBarIcon: ({ color }) => <OrdersIcon  size={26} color={color} />,
-        }}
+         options={{
+      href: null, // This is the magic line that hides the icon
+    }}
       />
       <Tabs.Screen
         name="support"
+        
         options={{
-          tabBarIcon: ({ color }) => <SupportIcon  size={26} color={color} />,
+          href:null,
         }}
       />
       <Tabs.Screen
     name="search"
     options={{
       href: null, // This is the magic line that hides the icon
+    }}
+  />
+      <Tabs.Screen
+    name="profile"
+    options={{
+     tabBarIcon: ({ color }) => <User2 strokeWidth={1}  size={32} color={color} />, // This is the magic line that hides the icon
     }}
   />
       {/* ... Add other screens: favorites, orders, support */}

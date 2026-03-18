@@ -74,9 +74,12 @@ const HomeHeader = () => {
           </Text>
         </TouchableOpacity>
         <View className="flex flex-row items-center justify-between gap-3">
-          <View className="bg-white p-1 rounded-xl">
+          <TouchableOpacity onPress={()=>navigate.push("/cart")} className="bg-white p-1 rounded-xl">
             <ShoppingCart size={25} stroke={"#E95322"} />
-          </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigate.push("/profile")} className="bg-white p-1 rounded-xl">
+            <User size={25} stroke={"#E95322"} />
+          </TouchableOpacity>
           {/* <View className="bg-white p-1 rounded-xl">
             <Bell size={25} stroke={"#E95322"} />
           </View> */}
