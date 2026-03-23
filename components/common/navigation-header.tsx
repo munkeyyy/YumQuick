@@ -1,6 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import {router} from "expo-router"
+import { router } from "expo-router";
 import { ChevronLeft } from "lucide-react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 interface NavigationHeaderProps {
   title: string;
 
@@ -10,9 +10,9 @@ interface NavigationHeaderProps {
 export function NavigationHeader({ title }: NavigationHeaderProps) {
   return (
     <View style={styles.container}>
-        <TouchableOpacity onPress={()=>router.back()}>
-          <ChevronLeft color="#E95322" size={22} />
-        </TouchableOpacity>
+      <TouchableOpacity onPress={() => router.back()}>
+        <ChevronLeft color="#7A10FA" size={22} />
+      </TouchableOpacity>
       <Text style={styles.title}>{title}</Text>
       <View />
     </View>
@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: "bold",
     color: "#fff",
-    fontFamily:'Spartan'
+    fontFamily: 'Spartan'
   },
 });

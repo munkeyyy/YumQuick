@@ -1,15 +1,14 @@
 import { NavigationHeader } from "@/components/common/navigation-header";
 import { ScreenWrapper } from "@/components/common/screen-wrapper";
 
-import { Eye, EyeClosed, EyeOff, Navigation } from "lucide-react-native";
+import { Eye, EyeOff } from "lucide-react-native";
 import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
   TextInput,
-  Touchable,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 // @ts-ignore
 import Google from "../../assets/images/Gmail.svg";
@@ -17,20 +16,19 @@ import Google from "../../assets/images/Gmail.svg";
 import Facebook from "../../assets/images/Facebook.svg";
 // @ts-ignore
 import Print from "../../assets/images/Mark.svg";
-import { Image } from "react-native-svg";
 
-import { useRouter } from "expo-router";
 import { useAuth } from "@/context/auth-context";
+import { useRouter } from "expo-router";
 
 const Login = () => {
   const navigate = useRouter();
-const {signIn}=useAuth();
+  const { signIn } = useAuth();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-const handleSignIn=()=>{
-  signIn();
-  navigate.push(`/(tabs)`)
-}
+  const handleSignIn = () => {
+    signIn();
+    navigate.push(`/(tabs)`)
+  }
   return (
     <ScreenWrapper headerContent={<NavigationHeader title="Log In" />}>
       <View style={styles.conatiner}>
@@ -63,9 +61,9 @@ const handleSignIn=()=>{
                 onPress={() => setIsPasswordVisible(!isPasswordVisible)}
               >
                 {isPasswordVisible ? (
-                  <Eye size={20} color={"#E95322"} />
+                  <Eye size={20} color={"#7A10FA"} />
                 ) : (
-                  <EyeOff size={20} color={"#E95322"} />
+                  <EyeOff size={20} color={"#7A10FA"} />
                 )}
               </TouchableOpacity>
             </View>
@@ -87,7 +85,7 @@ const handleSignIn=()=>{
               <View style={styles.option}>
                 <Facebook style={styles.optionImage} />
               </View>
-              <TouchableOpacity onPress={()=>navigate.push('/(auth)/set-fingerprint')} style={styles.option}>
+              <TouchableOpacity onPress={() => navigate.push('/(auth)/set-fingerprint')} style={styles.option}>
                 <Print style={styles.optionImage} />
               </TouchableOpacity>
             </View>
@@ -95,7 +93,7 @@ const handleSignIn=()=>{
           <View style={styles.signuplink}>
             <Text style={styles.signUpText}>Don't have an account?</Text>
             <TouchableOpacity onPress={() => navigate.push("/(auth)/sign-up")}>
-              <Text style={[styles.signUpText, { color: "#E95322" }]}>
+              <Text style={[styles.signUpText, { color: "#7A10FA" }]}>
                 Sign Up
               </Text>
             </TouchableOpacity>
@@ -166,7 +164,7 @@ const styles = StyleSheet.create({
     textAlign: "right",
     fontSize: 14,
     fontWeight: "500",
-    color: "#E95322",
+    color: "#7A10FA",
   },
   ctaContainer: {
     flexDirection: "column",
@@ -176,7 +174,7 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   loginButton: {
-    backgroundColor: "#E95322",
+    backgroundColor: "#7A10FA",
     paddingHorizontal: 80,
     paddingVertical: 12,
     borderRadius: 30,

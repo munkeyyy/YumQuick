@@ -135,7 +135,7 @@ const Home = () => {
   ];
 
   return (
-    <View className="flex-1 bg-[#E95322]">
+    <View className="flex-1 bg-[#7A10FA]">
       {/* Background SVG Layer */}
       <View className="absolute inset-0 top-5 ">
         <Svg width={SCREEN_WIDTH} height={2000}>
@@ -156,11 +156,11 @@ const Home = () => {
             >
               <View className={`self-center`}>
                 {React.cloneElement(item.icon, {
-                  color: isActive ? "#E95322" : "#F3E9B5",
+                  color: isActive ? "#7A10FA" : "#F3E9B5",
                 })}
               </View>
               <Text
-                className={`text-[10px] mt-2 font-bold ${isActive ? "text-[#E95322]" : "text-white"}`}
+                className={`text-[10px] mt-2 font-bold ${isActive ? "text-[#7A10FA]" : "text-white"}`}
               >
                 {item.name}
               </Text>
@@ -200,7 +200,7 @@ const Home = () => {
                     })
                   }
                   className="bg-white p-4 rounded-2xl shadow-sm relative "
-                  >
+                >
                   <Text className="p-1 px-3 text-white bg-[rgba(0,0,0,0.6)] rounded-full absolute z-10 text-sm top-8 left-6">{item.title}</Text>
                   <View
                     style={{
@@ -211,19 +211,19 @@ const Home = () => {
                   />
                   <View className="flex-row justify-between items-center mt-4">
                     <View className="flex-1">
-                      <Text style={{fontFamily:Fonts.spartan}} className="text-lg font-bold text-gray-900">
+                      <Text style={{ fontFamily: Fonts.spartan }} className="text-lg font-bold text-gray-900">
                         {item.title}
                       </Text>
                       <Text className="text-gray-500 text-xs mb-1">
                         {item.desc}
                       </Text>
-                      <Text className="text-[#E95322] font-bold">
+                      <Text className="text-[#7A10FA] font-bold">
                         ₹{item.price}
                       </Text>
                     </View>
 
                     <View className="bg-[#FDF2EE] px-3 py-1 rounded-full">
-                      <Text className="text-[#E95322] text-xs font-bold">
+                      <Text className="text-[#7A10FA] text-xs font-bold">
                         ★ {item.rating}
                       </Text>
                     </View>

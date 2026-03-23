@@ -1,7 +1,6 @@
 // app/(tabs)/_layout.tsx
+import { HeartIcon, HomeIcon, MenuIcon } from '@/helpers/icons';
 import { Tabs } from 'expo-router';
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-import { HeartIcon, HomeIcon, MenuIcon, OrdersIcon, SupportIcon } from '@/helpers/icons';
 import { User2 } from 'lucide-react-native';
 
 export default function TabLayout() {
@@ -15,19 +14,19 @@ export default function TabLayout() {
         // Using standard styles for the positioning
         tabBarStyle: {
           position: 'absolute',
-        inset:'unset',
+          inset: 'unset',
 
           // bottom: 0,
-          width:'100%',
-       
-          backgroundColor: '#E95322', // Your orange color
+          width: '100%',
+
+          backgroundColor: '#7A10FA', // Your orange color
           borderRadius: 40,
           height: 70,
-          display:'flex',
-          flexDirection:'row',
-          justifyContent:'center',
-          alignItems:'center',
-          padding:10,
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: 10,
 
           borderTopWidth: 0,
           elevation: 5,
@@ -35,7 +34,7 @@ export default function TabLayout() {
           shadowOffset: { width: 0, height: 10 },
           shadowOpacity: 0.2,
           shadowRadius: 10,
- // Centers icons vertically
+          // Centers icons vertically
         },
       }}
     >
@@ -48,40 +47,40 @@ export default function TabLayout() {
       <Tabs.Screen
         name="menu"
         options={{
-          tabBarIcon: ({ color }) => <MenuIcon  size={32} color={color} />,
+          tabBarIcon: ({ color }) => <MenuIcon size={32} color={color} />,
         }}
       />
       <Tabs.Screen
         name="favourites"
         options={{
-          tabBarIcon: ({ color }) => <HeartIcon  size={32} color={color} />,
+          tabBarIcon: ({ color }) => <HeartIcon size={32} color={color} />,
         }}
       />
       <Tabs.Screen
         name="orders"
-         options={{
-      href: null, // This is the magic line that hides the icon
-    }}
-      />
-      <Tabs.Screen
-        name="support"
-        
         options={{
-          href:null,
+          href: null, // This is the magic line that hides the icon
         }}
       />
       <Tabs.Screen
-    name="search"
-    options={{
-      href: null, // This is the magic line that hides the icon
-    }}
-  />
+        name="support"
+
+        options={{
+          href: null,
+        }}
+      />
       <Tabs.Screen
-    name="profile"
-    options={{
-     tabBarIcon: ({ color }) => <User2 strokeWidth={1}  size={32} color={color} />, // This is the magic line that hides the icon
-    }}
-  />
+        name="search"
+        options={{
+          href: null, // This is the magic line that hides the icon
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          tabBarIcon: ({ color }) => <User2 strokeWidth={1} size={32} color={color} />, // This is the magic line that hides the icon
+        }}
+      />
       {/* ... Add other screens: favorites, orders, support */}
     </Tabs>
   );

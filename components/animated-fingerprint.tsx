@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
-import Svg, { Path } from 'react-native-svg';
-import Animated, { 
-  useAnimatedProps, 
-  useSharedValue, 
-  withTiming, 
-  Easing 
-} from 'react-native-reanimated';
 import { useRouter } from 'expo-router';
+import React, { useEffect } from 'react';
+import { StyleSheet, View } from 'react-native';
+import Animated, {
+  Easing,
+  useAnimatedProps,
+  useSharedValue,
+  withTiming
+} from 'react-native-reanimated';
+import Svg, { Path } from 'react-native-svg';
 
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 
@@ -18,7 +18,7 @@ interface Props {
 
 export const FingerprintScanner = ({ isScanning, onComplete }: Props) => {
   const navigate = useRouter();
-  const progress = useSharedValue(1); 
+  const progress = useSharedValue(1);
   const STROKE_LENGTH = 3000; // High value for complex fingerprint paths
 
   // The exact 'd' attribute from your SVG
@@ -31,7 +31,7 @@ export const FingerprintScanner = ({ isScanning, onComplete }: Props) => {
         duration: 3000,
         easing: Easing.bezier(0.4, 0, 0.2, 1),
       }, (finished) => {
-        
+
         if (finished && onComplete) onComplete();
       });
     } else {
@@ -45,29 +45,29 @@ export const FingerprintScanner = ({ isScanning, onComplete }: Props) => {
 
   return (
     <View style={styles.container}>
-    <Svg width="220" height="280" viewBox="0 0 259 329">
-      {/* Background "Ghost" Path */}
-      <Path
-        d={pathData}
-        fill="none" // Add this
-        stroke="#FFDECF"
-        strokeWidth="16.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Animated "Fill" Path */}
-      <AnimatedPath
-        d={pathData}
-        fill="none" // Add this
-        stroke="#E95322"
-        strokeWidth="17"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeDasharray={STROKE_LENGTH}
-        animatedProps={animatedProps}
-      />
-    </Svg>
-  </View>
+      <Svg width="220" height="280" viewBox="0 0 259 329">
+        {/* Background "Ghost" Path */}
+        <Path
+          d={pathData}
+          fill="none" // Add this
+          stroke="#FFDECF"
+          strokeWidth="16.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        {/* Animated "Fill" Path */}
+        <AnimatedPath
+          d={pathData}
+          fill="none" // Add this
+          stroke="#7A10FA"
+          strokeWidth="17"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeDasharray={STROKE_LENGTH}
+          animatedProps={animatedProps}
+        />
+      </Svg>
+    </View>
   );
 };
 
@@ -76,6 +76,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 40,
-    height:'100%'
+    height: '100%'
   }
 });

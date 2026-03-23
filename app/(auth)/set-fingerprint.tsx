@@ -1,6 +1,5 @@
 import {
-  AnimatedFingerprint,
-  FingerprintScanner,
+  FingerprintScanner
 } from "@/components/animated-fingerprint";
 import { NavigationHeader } from "@/components/common/navigation-header";
 import { ScreenWrapper } from "@/components/common/screen-wrapper";
@@ -9,7 +8,7 @@ import { useRouter } from "expo-router";
 import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 const SetFingerPrint = () => {
-  const navigate= useRouter();
+  const navigate = useRouter();
   const [isScanning, setIsScanning] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
   const startAuth = async () => {
@@ -50,7 +49,7 @@ export default SetFingerPrint;
 
 const styles = StyleSheet.create({
   loginButton: {
-    backgroundColor: "#E95322",
+    backgroundColor: "#7A10FA",
     paddingHorizontal: 80,
     paddingVertical: 12,
     borderRadius: 30,

@@ -9,6 +9,7 @@ import "../global.css";
 import { AuthProvider, useAuth } from "@/context/auth-context";
 import StackLayout from "./consumer-stack-layout";
 import { LocationProvider } from "@/context/location-context";
+import { CartProvider } from "@/context/cart-context";
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
@@ -16,8 +17,9 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <AuthProvider>
         <LocationProvider>
-
-        <StackLayout />
+          <CartProvider>
+            <StackLayout />
+          </CartProvider>
         </LocationProvider>
       </AuthProvider>
     </ThemeProvider>

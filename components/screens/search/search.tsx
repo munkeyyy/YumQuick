@@ -1,17 +1,4 @@
-import React, { useState, useEffect } from "react";
-import {
-  View,
-  TextInput,
-  TouchableOpacity,
-  Text,
-  FlatList,
-  Image,
-} from "react-native";
-import Animated, {
-  FadeInDown,
-  FadeInUp,
-  FadeOutUp,
-} from "react-native-reanimated";
+import { ScreenWrapper } from "@/components/common/screen-wrapper";
 import {
   Hamburger,
   Heart,
@@ -22,7 +9,19 @@ import {
   Settings2,
   X,
 } from "lucide-react-native";
-import { ScreenWrapper } from "@/components/common/screen-wrapper";
+import React, { useEffect, useState } from "react";
+import {
+  FlatList,
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import Animated, {
+  FadeInDown,
+  FadeOutUp
+} from "react-native-reanimated";
 // @ts-ignore
 import Burger from "../../../assets/images/burger.jpg";
 const SearchScreen = () => {
@@ -79,7 +78,7 @@ const SearchScreen = () => {
             Recent Searches
           </Text>
           <TouchableOpacity>
-            <Text className="text-[#E95322] font-semibold">Clear All</Text>
+            <Text className="text-[#7A10FA] font-semibold">Clear All</Text>
           </TouchableOpacity>
         </View>
 
@@ -124,7 +123,7 @@ const SearchScreen = () => {
               renderItem={({ item }) => (
                 <View className="">
                   <TouchableOpacity
-                    className="flex-row items-center bg-[#E95322]  px-4 py-4 justify-between rounded-full border border-gray-200"
+                    className="flex-row items-center bg-[#7A10FA]  px-4 py-4 justify-between rounded-full border border-gray-200"
                     onPress={() => setSearchText(item.name)}
                   >
                     {item.icon}
@@ -173,11 +172,11 @@ const SearchScreen = () => {
           renderItem={({ item }) => (
             <View className="">
               <TouchableOpacity
-                className={`flex-row items-center   px-4 py-2 justify-between rounded-full  border border-[#E95322] ${activeItem === item.key ? "bg-[#E95322]" : "border-[#E95322] bg-white"}`}
+                className={`flex-row items-center   px-4 py-2 justify-between rounded-full  border border-[#7A10FA] ${activeItem === item.key ? "bg-[#7A10FA]" : "border-[#7A10FA] bg-white"}`}
                 onPress={() => handleFilter(item.key)}
               >
                 <Text
-                  className={`${activeItem === item.key ? "text-white" : "text-[#E95322]"} text-sm font-medium`}
+                  className={`${activeItem === item.key ? "text-white" : "text-[#7A10FA]"} text-sm font-medium`}
                 >
                   {item.key.toUpperCase()}
                 </Text>
@@ -192,7 +191,7 @@ const SearchScreen = () => {
     <ScreenWrapper
       headerContent={
         <View className="bg-white w-full p-2 px-4 relative rounded-3xl shadow-xl elevation-lg flex flex-row items-center gap-2">
-          <Search size={15} color={"#E95322"} strokeWidth={4} />
+          <Search size={15} color={"#7A10FA"} strokeWidth={4} />
 
           <View className="flex-1 justify-center h-10">
             {/* Animated Placeholder logic */}
@@ -220,7 +219,7 @@ const SearchScreen = () => {
             />
           </View>
 
-          <TouchableOpacity className="p-3 bg-[#E95322] rounded-full">
+          <TouchableOpacity className="p-3 bg-[#7A10FA] rounded-full">
             <Settings2 size={15} color={"#fff"} />
           </TouchableOpacity>
         </View>

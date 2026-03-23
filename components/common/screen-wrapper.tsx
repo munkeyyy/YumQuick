@@ -37,7 +37,7 @@ export const ScreenWrapper = ({ title, headerContent, children, scrollable = tru
 const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
-    backgroundColor: '#F5CB58', // Your yellow background
+    backgroundColor: '#1A1A2E', // Your yellow background
     
   },
   headerArea: {

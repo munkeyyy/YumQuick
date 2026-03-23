@@ -8,10 +8,10 @@ export const HomeIcon = ({ color = "white", size = 26 }) => {
   const height = (size * 23) / 26;
 
   return (
-    <Svg 
-      width={size} 
-      height={height} 
-      viewBox="0 0 26 23" 
+    <Svg
+      width={size}
+      height={height}
+      viewBox="0 0 26 23"
       fill="none"
     >
       <Path
@@ -29,10 +29,10 @@ export const MenuIcon = ({ color = "white", size = 32 }) => {
   const height = (size * 22) / 32;
 
   return (
-    <Svg 
-      width={size} 
-      height={height} 
-      viewBox="0 0 32 22" 
+    <Svg
+      width={size}
+      height={height}
+      viewBox="0 0 32 22"
       fill="none"
     >
       <Path
@@ -51,10 +51,10 @@ export const HeartIcon = ({ color = "white", size = 22 }) => {
   const height = (size * 19) / 22;
 
   return (
-    <Svg 
-      width={size} 
-      height={height} 
-      viewBox="0 0 22 19" 
+    <Svg
+      width={size}
+      height={height}
+      viewBox="0 0 22 19"
       fill="none"
     >
       <Path
@@ -74,10 +74,10 @@ export const OrdersIcon = ({ color = "white", size = 26 }) => {
   const width = (size * 18) / 26;
 
   return (
-    <Svg 
-      width={width} 
-      height={size} 
-      viewBox="0 0 18 26" 
+    <Svg
+      width={width}
+      height={size}
+      viewBox="0 0 18 26"
       fill="none"
     >
       <Path
@@ -97,10 +97,10 @@ export const SupportIcon = ({ color = "white", size = 26 }) => {
   const height = (size * 25) / 26;
 
   return (
-    <Svg 
-      width={size} 
-      height={height} 
-      viewBox="0 0 26 25" 
+    <Svg
+      width={size}
+      height={height}
+      viewBox="0 0 26 25"
       fill="none"
     >
       <Path
@@ -114,12 +114,12 @@ export const SupportIcon = ({ color = "white", size = 26 }) => {
   );
 };
 
-export const Snacks = ({ size = 34, color = "#E95322" }) => {
+export const Snacks = ({ size = 34, color = "#7A10FA" }) => {
   return (
-    <Svg 
-      width={size} 
+    <Svg
+      width={size}
       height={(38 / 34) * size} // Maintains the 34:38 aspect ratio
-      viewBox="0 0 34 38" 
+      viewBox="0 0 34 38"
       fill="none"
     >
       <Path
@@ -132,12 +132,12 @@ export const Snacks = ({ size = 34, color = "#E95322" }) => {
   );
 };
 
-export const UtensilIcon = ({ size = 19, color = "#E95322" }) => {
+export const UtensilIcon = ({ size = 19, color = "#7A10FA" }) => {
   return (
-    <Svg 
-      width={size} 
+    <Svg
+      width={size}
       height={(38 / 19) * size} // Maintains the 1:2 aspect ratio
-      viewBox="0 0 19 38" 
+      viewBox="0 0 19 38"
       fill="none"
     >
       <Path
@@ -150,12 +150,12 @@ export const UtensilIcon = ({ size = 19, color = "#E95322" }) => {
   );
 };
 
-export const ChefIcon = ({ size = 38, color = "#E95322" }) => {
+export const ChefIcon = ({ size = 38, color = "#7A10FA" }) => {
   return (
-    <Svg 
-      width={size} 
+    <Svg
+      width={size}
       height={size} // Aspect ratio is 1:1 (38x38)
-      viewBox="0 0 38 38" 
+      viewBox="0 0 38 38"
       fill="none"
     >
       <Path
@@ -168,12 +168,12 @@ export const ChefIcon = ({ size = 38, color = "#E95322" }) => {
   );
 };
 
-export const SoupIcon = ({ size = 31, color = "#E95322" }) => {
+export const SoupIcon = ({ size = 31, color = "#7A10FA" }) => {
   return (
-    <Svg 
-      width={size} 
+    <Svg
+      width={size}
       height={(38 / 31) * size} // Maintains 31:38 aspect ratio
-      viewBox="0 0 31 38" 
+      viewBox="0 0 31 38"
       fill="none"
     >
       <Path
@@ -186,12 +186,12 @@ export const SoupIcon = ({ size = 31, color = "#E95322" }) => {
   );
 };
 
-export const CulinaryIcon = ({ size = 23, color = "#E95322" }) => {
+export const CulinaryIcon = ({ size = 23, color = "#7A10FA" }) => {
   return (
-    <Svg 
-      width={size} 
+    <Svg
+      width={size}
       height={(38 / 23) * size} // Maintains 23:38 aspect ratio
-      viewBox="0 0 23 38" 
+      viewBox="0 0 23 38"
       fill="none"
     >
       <Path

@@ -1,26 +1,18 @@
+import { useLocation } from "@/context/location-context";
 import { useRouter } from "expo-router";
 import {
-  Bell,
   ChevronDown,
-  Filter,
   Navigation,
-  Navigation2,
-  Option,
   Search,
-  Settings2,
   ShoppingCart,
-  User,
+  User
 } from "lucide-react-native";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
-  Pressable,
   Text,
-  TextInput,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
-import * as Location from "expo-location";
-import { useLocation } from "@/context/location-context";
 
 interface Address {
   city: string;
@@ -29,7 +21,7 @@ interface Address {
   formattedAddress: string;
   isoCountryCode: string;
   name: string;
-  postalCode:string;
+  postalCode: string;
   region: string;
   street: string;
   streetNumber: null;
@@ -38,7 +30,7 @@ interface Address {
 }
 const HomeHeader = () => {
   const navigate = useRouter();
-  const {location}=useLocation()
+  const { location } = useLocation()
 
   const getFormattedAddress = (address: string, placeName: string) => {
     const parts = address.split(",");
@@ -50,20 +42,20 @@ const HomeHeader = () => {
     return filtered.join(", ").trim();
   };
   const truncateText = (text: string, maxLength = 29) => {
-  if (!text) return "";
-  return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
-};
+    if (!text) return "";
+    return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+  };
   return (
     <View className="">
       <View className="flex flex-row items-center justify-between pt-6 mb-4">
-        <TouchableOpacity onPress={()=>navigate.push('/location')}>
+        <TouchableOpacity onPress={() => navigate.push('/location')}>
           <View className="flex flex-row items-center gap-2">
             <Text>
-              <Navigation size={20} fill={"#E95322"} color={"#E95322"} />
+              <Navigation size={20} fill={"#7A10FA"} color={"#7A10FA"} />
             </Text>
 
             <Text className="text-lg font-semibold text-white">
-              {location?.name?.slice(0,20)}
+              {location?.name?.slice(0, 20)}
             </Text>
             <Text className="text-lg font-semibold text-black">
               <ChevronDown size={20} color={"#f7f7f7"} />
@@ -74,14 +66,14 @@ const HomeHeader = () => {
           </Text>
         </TouchableOpacity>
         <View className="flex flex-row items-center justify-between gap-3">
-          <TouchableOpacity onPress={()=>navigate.push("/cart")} className="bg-white p-1 rounded-xl">
-            <ShoppingCart size={25} stroke={"#E95322"} />
+          <TouchableOpacity onPress={() => navigate.push("/cart")} className="bg-white p-1 rounded-xl">
+            <ShoppingCart size={25} stroke={"#7A10FA"} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigate.push("/profile")} className="bg-white p-1 rounded-xl">
-            <User size={25} stroke={"#E95322"} />
+          <TouchableOpacity onPress={() => navigate.push("/profile")} className="bg-white p-1 rounded-xl">
+            <User size={25} stroke={"#7A10FA"} />
           </TouchableOpacity>
           {/* <View className="bg-white p-1 rounded-xl">
-            <Bell size={25} stroke={"#E95322"} />
+            <Bell size={25} stroke={"#7A10FA"} />
           </View> */}
         </View>
       </View>
@@ -90,7 +82,7 @@ const HomeHeader = () => {
         className="bg-white w-[100%] px-3 py-3  relative rounded-3xl overflow-hidden flex-row  gap-1 items-center"
       >
         <Text>
-          <Search size={20} color={"#E95322"} />
+          <Search size={20} color={"#7A10FA"} />
         </Text>
         <Text
           placeholder="Search..."

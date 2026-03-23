@@ -114,7 +114,7 @@ const AppSplashScreen = () => {
     backgroundColor: interpolateColor(
       scale.value,
       [0, 1, 100],
-      ["#F5CB58", "#F5CB58", "#E95322"],
+      ["#F5CB58", "#F5CB58", "#7A10FA"],
     ),
   }));
 
@@ -137,7 +137,7 @@ const AppSplashScreen = () => {
               style={loginAnimatedStyle}
               className="bg-[#F5CB58] rounded-full px-20 py-3"
             >
-              <Text className="text-[#E95322] text-lg font-[700] text-center">
+              <Text className="text-[#7A10FA] text-lg font-[700] text-center">
                 Log In
               </Text>
             </Animated.View>
@@ -147,7 +147,7 @@ const AppSplashScreen = () => {
               style={signUpAnimatedStyle}
               className="bg-[#F3E9B5] rounded-full px-20 py-3"
             >
-              <Text className="text-[#E95322] text-lg font-[700]">Sign Up</Text>
+              <Text className="text-[#7A10FA] text-lg font-[700]">Sign Up</Text>
             </Animated.View>
           </Pressable>
         </View>

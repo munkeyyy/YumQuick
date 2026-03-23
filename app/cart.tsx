@@ -4,7 +4,7 @@ import { View } from 'react-native'
 
 const Cart = () => {
   return (
-    <View>
+    <View className='pb-8'>
       <CartScreen/>
     </View>
   )

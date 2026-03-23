@@ -14,12 +14,12 @@ import Google from "../../assets/images/Gmail.svg";
 // @ts-ignore
 import Facebook from "../../assets/images/Facebook.svg";
 // @ts-ignore
+import { useRouter, } from "expo-router";
 import Print from "../../assets/images/Mark.svg";
-import { useRouter,  } from "expo-router";
 const SignUp = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-      const navigate = useRouter();
-  
+  const navigate = useRouter();
+
   return (
     <ScreenWrapper headerContent={<NavigationHeader title="New Account" />}>
       <View style={styles.conatiner}>
@@ -43,9 +43,9 @@ const SignUp = () => {
                 onPress={() => setIsPasswordVisible(!isPasswordVisible)}
               >
                 {isPasswordVisible ? (
-                  <Eye size={20} color={"#E95322"} />
+                  <Eye size={20} color={"#7A10FA"} />
                 ) : (
-                  <EyeOff size={20} color={"#E95322"} />
+                  <EyeOff size={20} color={"#7A10FA"} />
                 )}
               </TouchableOpacity>
             </View>
@@ -77,35 +77,35 @@ const SignUp = () => {
         </View>
         <View style={styles.policy}>
 
-        <Text style={styles.terms}>By continuing, you agree to 
- Terms of Use and Privacy Policy.</Text>
+          <Text style={styles.terms}>By continuing, you agree to
+            Terms of Use and Privacy Policy.</Text>
         </View>
         <View style={styles.ctaContainer}>
           <TouchableOpacity style={styles.loginButton}>
             <Text style={styles.loginButtonText}>Sign Up </Text>
           </TouchableOpacity>
-       
-             <View >
-                        <Text style={styles.optionText}>or sign up with </Text>
-                        <View style={styles.options}>
-                          <View style={styles.option}>
-                            <Google style={styles.optionImage}  />
-                          </View>
-                          <View style={styles.option}>
-                            <Facebook style={styles.optionImage} />
-                          </View>
-                          <View style={styles.option}>
-                            <Print style={styles.optionImage} />
-                          </View>
-                        </View>
-                      </View>
-       
+
+          <View >
+            <Text style={styles.optionText}>or sign up with </Text>
+            <View style={styles.options}>
+              <View style={styles.option}>
+                <Google style={styles.optionImage} />
+              </View>
+              <View style={styles.option}>
+                <Facebook style={styles.optionImage} />
+              </View>
+              <View style={styles.option}>
+                <Print style={styles.optionImage} />
+              </View>
+            </View>
+          </View>
+
           <View style={styles.signuplink}>
             <Text style={styles.signUpText}>Already have an account?</Text>
-             <TouchableOpacity onPress={()=>navigate.push("/(auth)/login")}>
-            <Text style={[styles.signUpText, { color: "#E95322" }]}>
-             Log In
-            </Text>
+            <TouchableOpacity onPress={() => navigate.push("/(auth)/login")}>
+              <Text style={[styles.signUpText, { color: "#7A10FA" }]}>
+                Log In
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     textAlign: "right",
     fontSize: 14,
     fontWeight: "500",
-    color: "#E95322",
+    color: "#7A10FA",
   },
   ctaContainer: {
     flexDirection: "column",
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   loginButton: {
-    backgroundColor: "#E95322",
+    backgroundColor: "#7A10FA",
     paddingHorizontal: 80,
     paddingVertical: 12,
     borderRadius: 30,
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginVertical:5,
+    marginVertical: 5,
     gap: 5,
   },
   signUpText: {
@@ -220,14 +220,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 5,
   },
-  terms:{
-    textAlign:'center',
-    fontSize:12,
-    marginVertical:10,
-    width:180,
+  terms: {
+    textAlign: 'center',
+    fontSize: 12,
+    marginVertical: 10,
+    width: 180,
   },
-  policy:{
-    justifyContent:'center',
-    alignItems:'center'
+  policy: {
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
